@@ -5,7 +5,7 @@
 %global crate hyper
 
 Name:           rust-%{crate}
-Version:        0.13.2
+Version:        0.12.35
 Release:        1%{?dist}
 Summary:        Fast and correct HTTP library
 
@@ -51,6 +51,18 @@ which use "default" feature of "%{crate}" crate.
 %files       -n %{name}+default-devel
 %ghost %{cargo_registry}/%{crate}-%{version_no_tilde}/Cargo.toml
 
+%package     -n %{name}+__internal_flaky_tests-devel
+Summary:        %{summary}
+BuildArch:      noarch
+
+%description -n %{name}+__internal_flaky_tests-devel %{_description}
+
+This package contains library source intended for building other packages
+which use "__internal_flaky_tests" feature of "%{crate}" crate.
+
+%files       -n %{name}+__internal_flaky_tests-devel
+%ghost %{cargo_registry}/%{crate}-%{version_no_tilde}/Cargo.toml
+
 %package     -n %{name}+__internal_happy_eyeballs_tests-devel
 Summary:        %{summary}
 BuildArch:      noarch
@@ -61,6 +73,18 @@ This package contains library source intended for building other packages
 which use "__internal_happy_eyeballs_tests" feature of "%{crate}" crate.
 
 %files       -n %{name}+__internal_happy_eyeballs_tests-devel
+%ghost %{cargo_registry}/%{crate}-%{version_no_tilde}/Cargo.toml
+
+%package     -n %{name}+futures-cpupool-devel
+Summary:        %{summary}
+BuildArch:      noarch
+
+%description -n %{name}+futures-cpupool-devel %{_description}
+
+This package contains library source intended for building other packages
+which use "futures-cpupool" feature of "%{crate}" crate.
+
+%files       -n %{name}+futures-cpupool-devel
 %ghost %{cargo_registry}/%{crate}-%{version_no_tilde}/Cargo.toml
 
 %package     -n %{name}+net2-devel
@@ -99,28 +123,76 @@ which use "runtime" feature of "%{crate}" crate.
 %files       -n %{name}+runtime-devel
 %ghost %{cargo_registry}/%{crate}-%{version_no_tilde}/Cargo.toml
 
-%package     -n %{name}+stream-devel
+%package     -n %{name}+tokio-devel
 Summary:        %{summary}
 BuildArch:      noarch
 
-%description -n %{name}+stream-devel %{_description}
+%description -n %{name}+tokio-devel %{_description}
 
 This package contains library source intended for building other packages
-which use "stream" feature of "%{crate}" crate.
+which use "tokio" feature of "%{crate}" crate.
 
-%files       -n %{name}+stream-devel
+%files       -n %{name}+tokio-devel
 %ghost %{cargo_registry}/%{crate}-%{version_no_tilde}/Cargo.toml
 
-%package     -n %{name}+tcp-devel
+%package     -n %{name}+tokio-executor-devel
 Summary:        %{summary}
 BuildArch:      noarch
 
-%description -n %{name}+tcp-devel %{_description}
+%description -n %{name}+tokio-executor-devel %{_description}
 
 This package contains library source intended for building other packages
-which use "tcp" feature of "%{crate}" crate.
+which use "tokio-executor" feature of "%{crate}" crate.
 
-%files       -n %{name}+tcp-devel
+%files       -n %{name}+tokio-executor-devel
+%ghost %{cargo_registry}/%{crate}-%{version_no_tilde}/Cargo.toml
+
+%package     -n %{name}+tokio-reactor-devel
+Summary:        %{summary}
+BuildArch:      noarch
+
+%description -n %{name}+tokio-reactor-devel %{_description}
+
+This package contains library source intended for building other packages
+which use "tokio-reactor" feature of "%{crate}" crate.
+
+%files       -n %{name}+tokio-reactor-devel
+%ghost %{cargo_registry}/%{crate}-%{version_no_tilde}/Cargo.toml
+
+%package     -n %{name}+tokio-tcp-devel
+Summary:        %{summary}
+BuildArch:      noarch
+
+%description -n %{name}+tokio-tcp-devel %{_description}
+
+This package contains library source intended for building other packages
+which use "tokio-tcp" feature of "%{crate}" crate.
+
+%files       -n %{name}+tokio-tcp-devel
+%ghost %{cargo_registry}/%{crate}-%{version_no_tilde}/Cargo.toml
+
+%package     -n %{name}+tokio-threadpool-devel
+Summary:        %{summary}
+BuildArch:      noarch
+
+%description -n %{name}+tokio-threadpool-devel %{_description}
+
+This package contains library source intended for building other packages
+which use "tokio-threadpool" feature of "%{crate}" crate.
+
+%files       -n %{name}+tokio-threadpool-devel
+%ghost %{cargo_registry}/%{crate}-%{version_no_tilde}/Cargo.toml
+
+%package     -n %{name}+tokio-timer-devel
+Summary:        %{summary}
+BuildArch:      noarch
+
+%description -n %{name}+tokio-timer-devel %{_description}
+
+This package contains library source intended for building other packages
+which use "tokio-timer" feature of "%{crate}" crate.
+
+%files       -n %{name}+tokio-timer-devel
 %ghost %{cargo_registry}/%{crate}-%{version_no_tilde}/Cargo.toml
 
 %prep
@@ -142,5 +214,5 @@ which use "tcp" feature of "%{crate}" crate.
 %endif
 
 %changelog
-* Wed Feb 12 19:53:53 MSK 2020 Nikita Kretov <nkretov@croc.ru> - 0.13.2-1
+* Thu Feb 13 12:16:33 MSK 2020 Nikita Kretov <nkretov@croc.ru> - 0.12.35-1
 - Initial package
