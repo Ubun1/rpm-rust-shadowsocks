@@ -5,11 +5,11 @@
 %global crate futures-core-preview
 
 Name:           rust-%{crate}
-Version:        0.3.0~alpha.19
+Version:        0.2.3
 Release:        1%{?dist}
 Summary:        Core traits and types in for the `futures` library
 
-# Upstream license specification: MIT OR Apache-2.0
+# Upstream license specification: MIT/Apache-2.0
 License:        MIT or ASL 2.0
 URL:            https://crates.io/crates/futures-core-preview
 Source:         %{crates_source}
@@ -50,28 +50,28 @@ which use "default" feature of "%{crate}" crate.
 %files       -n %{name}+default-devel
 %ghost %{cargo_registry}/%{crate}-%{version_no_tilde}/Cargo.toml
 
-%package     -n %{name}+alloc-devel
+%package     -n %{name}+either-devel
 Summary:        %{summary}
 BuildArch:      noarch
 
-%description -n %{name}+alloc-devel %{_description}
+%description -n %{name}+either-devel %{_description}
 
 This package contains library source intended for building other packages
-which use "alloc" feature of "%{crate}" crate.
+which use "either" feature of "%{crate}" crate.
 
-%files       -n %{name}+alloc-devel
+%files       -n %{name}+either-devel
 %ghost %{cargo_registry}/%{crate}-%{version_no_tilde}/Cargo.toml
 
-%package     -n %{name}+cfg-target-has-atomic-devel
+%package     -n %{name}+nightly-devel
 Summary:        %{summary}
 BuildArch:      noarch
 
-%description -n %{name}+cfg-target-has-atomic-devel %{_description}
+%description -n %{name}+nightly-devel %{_description}
 
 This package contains library source intended for building other packages
-which use "cfg-target-has-atomic" feature of "%{crate}" crate.
+which use "nightly" feature of "%{crate}" crate.
 
-%files       -n %{name}+cfg-target-has-atomic-devel
+%files       -n %{name}+nightly-devel
 %ghost %{cargo_registry}/%{crate}-%{version_no_tilde}/Cargo.toml
 
 %package     -n %{name}+std-devel
@@ -84,18 +84,6 @@ This package contains library source intended for building other packages
 which use "std" feature of "%{crate}" crate.
 
 %files       -n %{name}+std-devel
-%ghost %{cargo_registry}/%{crate}-%{version_no_tilde}/Cargo.toml
-
-%package     -n %{name}+unstable-devel
-Summary:        %{summary}
-BuildArch:      noarch
-
-%description -n %{name}+unstable-devel %{_description}
-
-This package contains library source intended for building other packages
-which use "unstable" feature of "%{crate}" crate.
-
-%files       -n %{name}+unstable-devel
 %ghost %{cargo_registry}/%{crate}-%{version_no_tilde}/Cargo.toml
 
 %prep
@@ -117,5 +105,5 @@ which use "unstable" feature of "%{crate}" crate.
 %endif
 
 %changelog
-* Thu Feb 13 11:42:00 MSK 2020 Nikita Kretov <nkretov@croc.ru> - 0.3.0~alpha.19-1
+* Thu Feb 13 11:59:27 MSK 2020 Nikita Kretov <nkretov@croc.ru> - 0.2.3-1
 - Initial package
