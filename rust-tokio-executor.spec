@@ -5,7 +5,7 @@
 %global crate tokio-executor
 
 Name:           rust-%{crate}
-Version:        0.2.0~alpha.6
+Version:        0.1.10
 Release:        1%{?dist}
 Summary:        Future execution primitives
 
@@ -50,162 +50,6 @@ which use "default" feature of "%{crate}" crate.
 %files       -n %{name}+default-devel
 %ghost %{cargo_registry}/%{crate}-%{version_no_tilde}/Cargo.toml
 
-%package     -n %{name}+blocking-devel
-Summary:        %{summary}
-BuildArch:      noarch
-
-%description -n %{name}+blocking-devel %{_description}
-
-This package contains library source intended for building other packages
-which use "blocking" feature of "%{crate}" crate.
-
-%files       -n %{name}+blocking-devel
-%ghost %{cargo_registry}/%{crate}-%{version_no_tilde}/Cargo.toml
-
-%package     -n %{name}+crossbeam-channel-devel
-Summary:        %{summary}
-BuildArch:      noarch
-
-%description -n %{name}+crossbeam-channel-devel %{_description}
-
-This package contains library source intended for building other packages
-which use "crossbeam-channel" feature of "%{crate}" crate.
-
-%files       -n %{name}+crossbeam-channel-devel
-%ghost %{cargo_registry}/%{crate}-%{version_no_tilde}/Cargo.toml
-
-%package     -n %{name}+crossbeam-deque-devel
-Summary:        %{summary}
-BuildArch:      noarch
-
-%description -n %{name}+crossbeam-deque-devel %{_description}
-
-This package contains library source intended for building other packages
-which use "crossbeam-deque" feature of "%{crate}" crate.
-
-%files       -n %{name}+crossbeam-deque-devel
-%ghost %{cargo_registry}/%{crate}-%{version_no_tilde}/Cargo.toml
-
-%package     -n %{name}+crossbeam-queue-devel
-Summary:        %{summary}
-BuildArch:      noarch
-
-%description -n %{name}+crossbeam-queue-devel %{_description}
-
-This package contains library source intended for building other packages
-which use "crossbeam-queue" feature of "%{crate}" crate.
-
-%files       -n %{name}+crossbeam-queue-devel
-%ghost %{cargo_registry}/%{crate}-%{version_no_tilde}/Cargo.toml
-
-%package     -n %{name}+crossbeam-utils-devel
-Summary:        %{summary}
-BuildArch:      noarch
-
-%description -n %{name}+crossbeam-utils-devel %{_description}
-
-This package contains library source intended for building other packages
-which use "crossbeam-utils" feature of "%{crate}" crate.
-
-%files       -n %{name}+crossbeam-utils-devel
-%ghost %{cargo_registry}/%{crate}-%{version_no_tilde}/Cargo.toml
-
-%package     -n %{name}+current-thread-devel
-Summary:        %{summary}
-BuildArch:      noarch
-
-%description -n %{name}+current-thread-devel %{_description}
-
-This package contains library source intended for building other packages
-which use "current-thread" feature of "%{crate}" crate.
-
-%files       -n %{name}+current-thread-devel
-%ghost %{cargo_registry}/%{crate}-%{version_no_tilde}/Cargo.toml
-
-%package     -n %{name}+futures-core-preview-devel
-Summary:        %{summary}
-BuildArch:      noarch
-
-%description -n %{name}+futures-core-preview-devel %{_description}
-
-This package contains library source intended for building other packages
-which use "futures-core-preview" feature of "%{crate}" crate.
-
-%files       -n %{name}+futures-core-preview-devel
-%ghost %{cargo_registry}/%{crate}-%{version_no_tilde}/Cargo.toml
-
-%package     -n %{name}+lazy_static-devel
-Summary:        %{summary}
-BuildArch:      noarch
-
-%description -n %{name}+lazy_static-devel %{_description}
-
-This package contains library source intended for building other packages
-which use "lazy_static" feature of "%{crate}" crate.
-
-%files       -n %{name}+lazy_static-devel
-%ghost %{cargo_registry}/%{crate}-%{version_no_tilde}/Cargo.toml
-
-%package     -n %{name}+num_cpus-devel
-Summary:        %{summary}
-BuildArch:      noarch
-
-%description -n %{name}+num_cpus-devel %{_description}
-
-This package contains library source intended for building other packages
-which use "num_cpus" feature of "%{crate}" crate.
-
-%files       -n %{name}+num_cpus-devel
-%ghost %{cargo_registry}/%{crate}-%{version_no_tilde}/Cargo.toml
-
-%package     -n %{name}+slab-devel
-Summary:        %{summary}
-BuildArch:      noarch
-
-%description -n %{name}+slab-devel %{_description}
-
-This package contains library source intended for building other packages
-which use "slab" feature of "%{crate}" crate.
-
-%files       -n %{name}+slab-devel
-%ghost %{cargo_registry}/%{crate}-%{version_no_tilde}/Cargo.toml
-
-%package     -n %{name}+threadpool-devel
-Summary:        %{summary}
-BuildArch:      noarch
-
-%description -n %{name}+threadpool-devel %{_description}
-
-This package contains library source intended for building other packages
-which use "threadpool" feature of "%{crate}" crate.
-
-%files       -n %{name}+threadpool-devel
-%ghost %{cargo_registry}/%{crate}-%{version_no_tilde}/Cargo.toml
-
-%package     -n %{name}+tokio-sync-devel
-Summary:        %{summary}
-BuildArch:      noarch
-
-%description -n %{name}+tokio-sync-devel %{_description}
-
-This package contains library source intended for building other packages
-which use "tokio-sync" feature of "%{crate}" crate.
-
-%files       -n %{name}+tokio-sync-devel
-%ghost %{cargo_registry}/%{crate}-%{version_no_tilde}/Cargo.toml
-
-%package     -n %{name}+tracing-devel
-Summary:        %{summary}
-BuildArch:      noarch
-
-%description -n %{name}+tracing-devel %{_description}
-
-This package contains library source intended for building other packages
-which use "tracing" feature of "%{crate}" crate.
-
-%files       -n %{name}+tracing-devel
-%ghost %{cargo_registry}/%{crate}-%{version_no_tilde}/Cargo.toml
-
 %prep
 %autosetup -n %{crate}-%{version_no_tilde} -p1
 %cargo_prep
@@ -225,5 +69,5 @@ which use "tracing" feature of "%{crate}" crate.
 %endif
 
 %changelog
-* Thu Feb 13 11:25:35 MSK 2020 Nikita Kretov <nkretov@croc.ru> - 0.2.0~alpha.6-1
+* Thu Feb 13 12:10:35 MSK 2020 Nikita Kretov <nkretov@croc.ru> - 0.1.10-1
 - Initial package
