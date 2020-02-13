@@ -5,7 +5,7 @@
 %global crate want
 
 Name:           rust-%{crate}
-Version:        0.3.0
+Version:        0.2.0
 Release:        1%{?dist}
 Summary:        Detect when another Future wants a result
 
@@ -69,5 +69,5 @@ which use "default" feature of "%{crate}" crate.
 %endif
 
 %changelog
-* Wed Feb 12 23:45:16 MSK 2020 Nikita Kretov <nkretov@croc.ru> - 0.3.0-1
+* Thu Feb 13 12:13:19 MSK 2020 Nikita Kretov <nkretov@croc.ru> - 0.2.0-1
 - Initial package
