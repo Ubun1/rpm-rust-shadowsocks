@@ -5,11 +5,11 @@
 %global crate futures-util-preview
 
 Name:           rust-%{crate}
-Version:        0.3.0~alpha.19
+Version:        0.2.2
 Release:        1%{?dist}
 Summary:        Common utilities and extension traits for the futures-rs library
 
-# Upstream license specification: MIT OR Apache-2.0
+# Upstream license specification: MIT/Apache-2.0
 License:        MIT or ASL 2.0
 URL:            https://crates.io/crates/futures-util-preview
 Source:         %{crates_source}
@@ -50,268 +50,16 @@ which use "default" feature of "%{crate}" crate.
 %files       -n %{name}+default-devel
 %ghost %{cargo_registry}/%{crate}-%{version_no_tilde}/Cargo.toml
 
-%package     -n %{name}+alloc-devel
+%package     -n %{name}+bench-devel
 Summary:        %{summary}
 BuildArch:      noarch
 
-%description -n %{name}+alloc-devel %{_description}
+%description -n %{name}+bench-devel %{_description}
 
 This package contains library source intended for building other packages
-which use "alloc" feature of "%{crate}" crate.
+which use "bench" feature of "%{crate}" crate.
 
-%files       -n %{name}+alloc-devel
-%ghost %{cargo_registry}/%{crate}-%{version_no_tilde}/Cargo.toml
-
-%package     -n %{name}+async-await-devel
-Summary:        %{summary}
-BuildArch:      noarch
-
-%description -n %{name}+async-await-devel %{_description}
-
-This package contains library source intended for building other packages
-which use "async-await" feature of "%{crate}" crate.
-
-%files       -n %{name}+async-await-devel
-%ghost %{cargo_registry}/%{crate}-%{version_no_tilde}/Cargo.toml
-
-%package     -n %{name}+bilock-devel
-Summary:        %{summary}
-BuildArch:      noarch
-
-%description -n %{name}+bilock-devel %{_description}
-
-This package contains library source intended for building other packages
-which use "bilock" feature of "%{crate}" crate.
-
-%files       -n %{name}+bilock-devel
-%ghost %{cargo_registry}/%{crate}-%{version_no_tilde}/Cargo.toml
-
-%package     -n %{name}+cfg-target-has-atomic-devel
-Summary:        %{summary}
-BuildArch:      noarch
-
-%description -n %{name}+cfg-target-has-atomic-devel %{_description}
-
-This package contains library source intended for building other packages
-which use "cfg-target-has-atomic" feature of "%{crate}" crate.
-
-%files       -n %{name}+cfg-target-has-atomic-devel
-%ghost %{cargo_registry}/%{crate}-%{version_no_tilde}/Cargo.toml
-
-%package     -n %{name}+channel-devel
-Summary:        %{summary}
-BuildArch:      noarch
-
-%description -n %{name}+channel-devel %{_description}
-
-This package contains library source intended for building other packages
-which use "channel" feature of "%{crate}" crate.
-
-%files       -n %{name}+channel-devel
-%ghost %{cargo_registry}/%{crate}-%{version_no_tilde}/Cargo.toml
-
-%package     -n %{name}+compat-devel
-Summary:        %{summary}
-BuildArch:      noarch
-
-%description -n %{name}+compat-devel %{_description}
-
-This package contains library source intended for building other packages
-which use "compat" feature of "%{crate}" crate.
-
-%files       -n %{name}+compat-devel
-%ghost %{cargo_registry}/%{crate}-%{version_no_tilde}/Cargo.toml
-
-%package     -n %{name}+futures-channel-preview-devel
-Summary:        %{summary}
-BuildArch:      noarch
-
-%description -n %{name}+futures-channel-preview-devel %{_description}
-
-This package contains library source intended for building other packages
-which use "futures-channel-preview" feature of "%{crate}" crate.
-
-%files       -n %{name}+futures-channel-preview-devel
-%ghost %{cargo_registry}/%{crate}-%{version_no_tilde}/Cargo.toml
-
-%package     -n %{name}+futures-io-preview-devel
-Summary:        %{summary}
-BuildArch:      noarch
-
-%description -n %{name}+futures-io-preview-devel %{_description}
-
-This package contains library source intended for building other packages
-which use "futures-io-preview" feature of "%{crate}" crate.
-
-%files       -n %{name}+futures-io-preview-devel
-%ghost %{cargo_registry}/%{crate}-%{version_no_tilde}/Cargo.toml
-
-%package     -n %{name}+futures-join-macro-preview-devel
-Summary:        %{summary}
-BuildArch:      noarch
-
-%description -n %{name}+futures-join-macro-preview-devel %{_description}
-
-This package contains library source intended for building other packages
-which use "futures-join-macro-preview" feature of "%{crate}" crate.
-
-%files       -n %{name}+futures-join-macro-preview-devel
-%ghost %{cargo_registry}/%{crate}-%{version_no_tilde}/Cargo.toml
-
-%package     -n %{name}+futures-select-macro-preview-devel
-Summary:        %{summary}
-BuildArch:      noarch
-
-%description -n %{name}+futures-select-macro-preview-devel %{_description}
-
-This package contains library source intended for building other packages
-which use "futures-select-macro-preview" feature of "%{crate}" crate.
-
-%files       -n %{name}+futures-select-macro-preview-devel
-%ghost %{cargo_registry}/%{crate}-%{version_no_tilde}/Cargo.toml
-
-%package     -n %{name}+futures-sink-preview-devel
-Summary:        %{summary}
-BuildArch:      noarch
-
-%description -n %{name}+futures-sink-preview-devel %{_description}
-
-This package contains library source intended for building other packages
-which use "futures-sink-preview" feature of "%{crate}" crate.
-
-%files       -n %{name}+futures-sink-preview-devel
-%ghost %{cargo_registry}/%{crate}-%{version_no_tilde}/Cargo.toml
-
-%package     -n %{name}+futures_01-devel
-Summary:        %{summary}
-BuildArch:      noarch
-
-%description -n %{name}+futures_01-devel %{_description}
-
-This package contains library source intended for building other packages
-which use "futures_01" feature of "%{crate}" crate.
-
-%files       -n %{name}+futures_01-devel
-%ghost %{cargo_registry}/%{crate}-%{version_no_tilde}/Cargo.toml
-
-%package     -n %{name}+io-devel
-Summary:        %{summary}
-BuildArch:      noarch
-
-%description -n %{name}+io-devel %{_description}
-
-This package contains library source intended for building other packages
-which use "io" feature of "%{crate}" crate.
-
-%files       -n %{name}+io-devel
-%ghost %{cargo_registry}/%{crate}-%{version_no_tilde}/Cargo.toml
-
-%package     -n %{name}+io-compat-devel
-Summary:        %{summary}
-BuildArch:      noarch
-
-%description -n %{name}+io-compat-devel %{_description}
-
-This package contains library source intended for building other packages
-which use "io-compat" feature of "%{crate}" crate.
-
-%files       -n %{name}+io-compat-devel
-%ghost %{cargo_registry}/%{crate}-%{version_no_tilde}/Cargo.toml
-
-%package     -n %{name}+join-macro-devel
-Summary:        %{summary}
-BuildArch:      noarch
-
-%description -n %{name}+join-macro-devel %{_description}
-
-This package contains library source intended for building other packages
-which use "join-macro" feature of "%{crate}" crate.
-
-%files       -n %{name}+join-macro-devel
-%ghost %{cargo_registry}/%{crate}-%{version_no_tilde}/Cargo.toml
-
-%package     -n %{name}+memchr-devel
-Summary:        %{summary}
-BuildArch:      noarch
-
-%description -n %{name}+memchr-devel %{_description}
-
-This package contains library source intended for building other packages
-which use "memchr" feature of "%{crate}" crate.
-
-%files       -n %{name}+memchr-devel
-%ghost %{cargo_registry}/%{crate}-%{version_no_tilde}/Cargo.toml
-
-%package     -n %{name}+proc-macro-hack-devel
-Summary:        %{summary}
-BuildArch:      noarch
-
-%description -n %{name}+proc-macro-hack-devel %{_description}
-
-This package contains library source intended for building other packages
-which use "proc-macro-hack" feature of "%{crate}" crate.
-
-%files       -n %{name}+proc-macro-hack-devel
-%ghost %{cargo_registry}/%{crate}-%{version_no_tilde}/Cargo.toml
-
-%package     -n %{name}+proc-macro-nested-devel
-Summary:        %{summary}
-BuildArch:      noarch
-
-%description -n %{name}+proc-macro-nested-devel %{_description}
-
-This package contains library source intended for building other packages
-which use "proc-macro-nested" feature of "%{crate}" crate.
-
-%files       -n %{name}+proc-macro-nested-devel
-%ghost %{cargo_registry}/%{crate}-%{version_no_tilde}/Cargo.toml
-
-%package     -n %{name}+read_initializer-devel
-Summary:        %{summary}
-BuildArch:      noarch
-
-%description -n %{name}+read_initializer-devel %{_description}
-
-This package contains library source intended for building other packages
-which use "read_initializer" feature of "%{crate}" crate.
-
-%files       -n %{name}+read_initializer-devel
-%ghost %{cargo_registry}/%{crate}-%{version_no_tilde}/Cargo.toml
-
-%package     -n %{name}+select-macro-devel
-Summary:        %{summary}
-BuildArch:      noarch
-
-%description -n %{name}+select-macro-devel %{_description}
-
-This package contains library source intended for building other packages
-which use "select-macro" feature of "%{crate}" crate.
-
-%files       -n %{name}+select-macro-devel
-%ghost %{cargo_registry}/%{crate}-%{version_no_tilde}/Cargo.toml
-
-%package     -n %{name}+sink-devel
-Summary:        %{summary}
-BuildArch:      noarch
-
-%description -n %{name}+sink-devel %{_description}
-
-This package contains library source intended for building other packages
-which use "sink" feature of "%{crate}" crate.
-
-%files       -n %{name}+sink-devel
-%ghost %{cargo_registry}/%{crate}-%{version_no_tilde}/Cargo.toml
-
-%package     -n %{name}+slab-devel
-Summary:        %{summary}
-BuildArch:      noarch
-
-%description -n %{name}+slab-devel %{_description}
-
-This package contains library source intended for building other packages
-which use "slab" feature of "%{crate}" crate.
-
-%files       -n %{name}+slab-devel
+%files       -n %{name}+bench-devel
 %ghost %{cargo_registry}/%{crate}-%{version_no_tilde}/Cargo.toml
 
 %package     -n %{name}+std-devel
@@ -324,30 +72,6 @@ This package contains library source intended for building other packages
 which use "std" feature of "%{crate}" crate.
 
 %files       -n %{name}+std-devel
-%ghost %{cargo_registry}/%{crate}-%{version_no_tilde}/Cargo.toml
-
-%package     -n %{name}+tokio-io-devel
-Summary:        %{summary}
-BuildArch:      noarch
-
-%description -n %{name}+tokio-io-devel %{_description}
-
-This package contains library source intended for building other packages
-which use "tokio-io" feature of "%{crate}" crate.
-
-%files       -n %{name}+tokio-io-devel
-%ghost %{cargo_registry}/%{crate}-%{version_no_tilde}/Cargo.toml
-
-%package     -n %{name}+unstable-devel
-Summary:        %{summary}
-BuildArch:      noarch
-
-%description -n %{name}+unstable-devel %{_description}
-
-This package contains library source intended for building other packages
-which use "unstable" feature of "%{crate}" crate.
-
-%files       -n %{name}+unstable-devel
 %ghost %{cargo_registry}/%{crate}-%{version_no_tilde}/Cargo.toml
 
 %prep
@@ -369,5 +93,5 @@ which use "unstable" feature of "%{crate}" crate.
 %endif
 
 %changelog
-* Thu Feb 13 11:31:58 MSK 2020 Nikita Kretov <nkretov@croc.ru> - 0.3.0~alpha.19-1
+* Thu Feb 13 12:07:50 MSK 2020 Nikita Kretov <nkretov@croc.ru> - 0.2.2-1
 - Initial package
