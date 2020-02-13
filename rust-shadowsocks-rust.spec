@@ -4,7 +4,7 @@
 %global crate shadowsocks-rust
 
 Name:           rust-%{crate}
-Version:        1.8.8
+Version:        1.7.0
 Release:        1%{?dist}
 Summary:        Shadowsocks is a fast tunnel proxy that helps you bypass firewalls
 
@@ -32,11 +32,10 @@ Summary:        %{summary}
 %description -n %{crate} %{_description}
 
 %files       -n %{crate}
-%{_bindir}/ssredir
-%{_bindir}/ssurl
 %{_bindir}/sslocal
 %{_bindir}/ssserver
-%{_bindir}/sstunnel
+%{_bindir}/ssurl
+%{_bindir}/ssdns
 %endif
 
 %package        devel
@@ -63,52 +62,16 @@ which use "default" feature of "%{crate}" crate.
 %files       -n %{name}+default-devel
 %ghost %{cargo_registry}/%{crate}-%{version_no_tilde}/Cargo.toml
 
-%package     -n %{name}+aes-cfb-devel
+%package     -n %{name}+libsodium-ffi-devel
 Summary:        %{summary}
 BuildArch:      noarch
 
-%description -n %{name}+aes-cfb-devel %{_description}
+%description -n %{name}+libsodium-ffi-devel %{_description}
 
 This package contains library source intended for building other packages
-which use "aes-cfb" feature of "%{crate}" crate.
+which use "libsodium-ffi" feature of "%{crate}" crate.
 
-%files       -n %{name}+aes-cfb-devel
-%ghost %{cargo_registry}/%{crate}-%{version_no_tilde}/Cargo.toml
-
-%package     -n %{name}+aes-ctr-devel
-Summary:        %{summary}
-BuildArch:      noarch
-
-%description -n %{name}+aes-ctr-devel %{_description}
-
-This package contains library source intended for building other packages
-which use "aes-ctr" feature of "%{crate}" crate.
-
-%files       -n %{name}+aes-ctr-devel
-%ghost %{cargo_registry}/%{crate}-%{version_no_tilde}/Cargo.toml
-
-%package     -n %{name}+camellia-cfb-devel
-Summary:        %{summary}
-BuildArch:      noarch
-
-%description -n %{name}+camellia-cfb-devel %{_description}
-
-This package contains library source intended for building other packages
-which use "camellia-cfb" feature of "%{crate}" crate.
-
-%files       -n %{name}+camellia-cfb-devel
-%ghost %{cargo_registry}/%{crate}-%{version_no_tilde}/Cargo.toml
-
-%package     -n %{name}+libsodium-sys-devel
-Summary:        %{summary}
-BuildArch:      noarch
-
-%description -n %{name}+libsodium-sys-devel %{_description}
-
-This package contains library source intended for building other packages
-which use "libsodium-sys" feature of "%{crate}" crate.
-
-%files       -n %{name}+libsodium-sys-devel
+%files       -n %{name}+libsodium-ffi-devel
 %ghost %{cargo_registry}/%{crate}-%{version_no_tilde}/Cargo.toml
 
 %package     -n %{name}+miscreant-devel
@@ -123,30 +86,6 @@ which use "miscreant" feature of "%{crate}" crate.
 %files       -n %{name}+miscreant-devel
 %ghost %{cargo_registry}/%{crate}-%{version_no_tilde}/Cargo.toml
 
-%package     -n %{name}+openssl-devel
-Summary:        %{summary}
-BuildArch:      noarch
-
-%description -n %{name}+openssl-devel %{_description}
-
-This package contains library source intended for building other packages
-which use "openssl" feature of "%{crate}" crate.
-
-%files       -n %{name}+openssl-devel
-%ghost %{cargo_registry}/%{crate}-%{version_no_tilde}/Cargo.toml
-
-%package     -n %{name}+openssl-vendored-devel
-Summary:        %{summary}
-BuildArch:      noarch
-
-%description -n %{name}+openssl-vendored-devel %{_description}
-
-This package contains library source intended for building other packages
-which use "openssl-vendored" feature of "%{crate}" crate.
-
-%files       -n %{name}+openssl-vendored-devel
-%ghost %{cargo_registry}/%{crate}-%{version_no_tilde}/Cargo.toml
-
 %package     -n %{name}+rc4-devel
 Summary:        %{summary}
 BuildArch:      noarch
@@ -159,30 +98,6 @@ which use "rc4" feature of "%{crate}" crate.
 %files       -n %{name}+rc4-devel
 %ghost %{cargo_registry}/%{crate}-%{version_no_tilde}/Cargo.toml
 
-%package     -n %{name}+redir-devel
-Summary:        %{summary}
-BuildArch:      noarch
-
-%description -n %{name}+redir-devel %{_description}
-
-This package contains library source intended for building other packages
-which use "redir" feature of "%{crate}" crate.
-
-%files       -n %{name}+redir-devel
-%ghost %{cargo_registry}/%{crate}-%{version_no_tilde}/Cargo.toml
-
-%package     -n %{name}+single-threaded-devel
-Summary:        %{summary}
-BuildArch:      noarch
-
-%description -n %{name}+single-threaded-devel %{_description}
-
-This package contains library source intended for building other packages
-which use "single-threaded" feature of "%{crate}" crate.
-
-%files       -n %{name}+single-threaded-devel
-%ghost %{cargo_registry}/%{crate}-%{version_no_tilde}/Cargo.toml
-
 %package     -n %{name}+sodium-devel
 Summary:        %{summary}
 BuildArch:      noarch
@@ -193,30 +108,6 @@ This package contains library source intended for building other packages
 which use "sodium" feature of "%{crate}" crate.
 
 %files       -n %{name}+sodium-devel
-%ghost %{cargo_registry}/%{crate}-%{version_no_tilde}/Cargo.toml
-
-%package     -n %{name}+trust-dns-devel
-Summary:        %{summary}
-BuildArch:      noarch
-
-%description -n %{name}+trust-dns-devel %{_description}
-
-This package contains library source intended for building other packages
-which use "trust-dns" feature of "%{crate}" crate.
-
-%files       -n %{name}+trust-dns-devel
-%ghost %{cargo_registry}/%{crate}-%{version_no_tilde}/Cargo.toml
-
-%package     -n %{name}+trust-dns-resolver-devel
-Summary:        %{summary}
-BuildArch:      noarch
-
-%description -n %{name}+trust-dns-resolver-devel %{_description}
-
-This package contains library source intended for building other packages
-which use "trust-dns-resolver" feature of "%{crate}" crate.
-
-%files       -n %{name}+trust-dns-resolver-devel
 %ghost %{cargo_registry}/%{crate}-%{version_no_tilde}/Cargo.toml
 
 %prep
@@ -238,5 +129,5 @@ which use "trust-dns-resolver" feature of "%{crate}" crate.
 %endif
 
 %changelog
-* Mon Feb 10 23:10:26 MSK 2020 Nikita Kretov <nkretov@croc.ru> - 1.8.8-1
+* Thu Feb 13 12:34:30 MSK 2020 Nikita Kretov <nkretov@croc.ru> - 1.7.0-1
 - Initial package
