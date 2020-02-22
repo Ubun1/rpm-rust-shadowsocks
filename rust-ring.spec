@@ -21,6 +21,14 @@ BuildArch:      noarch
 %endif
 
 BuildRequires:  rust-packaging
+%if ! %{__cargo_skip_build}
+BuildRequires:  (crate(cc) >= 1.0.37 with crate(cc) < 2.0.0)
+BuildRequires:  (crate(lazy_static) >= 1.3.0 with crate(lazy_static) < 2.0.0)
+BuildRequires:  (crate(libc) >= 0.2.48 with crate(libc) < 0.3.0)
+BuildRequires:  (crate(spin) >= 0.5.0 with crate(spin) < 0.6.0)
+BuildRequires:  (crate(untrusted/default) >= 0.7.0 with crate(untrusted/default) < 0.8.0)
+%endif
+%endif
 
 %global _description %{expand:
 Safe, fast, small crypto using Rust.}
@@ -141,9 +149,6 @@ which use "test_logging" feature of "%{crate}" crate.
 %autosetup -n %{crate}-%{version_no_tilde} -p1
 %cargo_prep
 
-%generate_buildrequires
-%cargo_generate_buildrequires
-
 %build
 %cargo_build
 
@@ -156,5 +161,5 @@ which use "test_logging" feature of "%{crate}" crate.
 %endif
 
 %changelog
-* Sat Feb 22 19:45:23 MSK 2020 Nikita Kretov <nkretov@croc.ru> - 0.16.1-1
+* Sat Feb 22 19:56:52 MSK 2020 Nikita Kretov <nkretov@croc.ru> - 0.16.1-1
 - Initial package
