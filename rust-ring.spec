@@ -28,7 +28,6 @@ BuildRequires:  (crate(libc) >= 0.2.48 with crate(libc) < 0.3.0)
 BuildRequires:  (crate(spin) >= 0.5.0 with crate(spin) < 0.6.0)
 BuildRequires:  (crate(untrusted/default) >= 0.7.0 with crate(untrusted/default) < 0.8.0)
 %endif
-%endif
 
 %global _description %{expand:
 Safe, fast, small crypto using Rust.}
