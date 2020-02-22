@@ -149,7 +149,7 @@ which use "test_logging" feature of "%{crate}" crate.
 %cargo_prep
 
 %build
-%cargo_build
+%cargo_build --target x86_64-linux-android
 
 %install
 %cargo_install
